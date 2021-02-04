@@ -2,9 +2,10 @@
   "name": "virtual-list-engine",
   "version": "1.0.1",
   "description": "virtualListEngine",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx rollup -c rollup.config.js"
   },
   "keywords": [
     "virtualListEngine",
@@ -13,5 +14,17 @@
     "virtual"
   ],
   "author": "caiwu",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "rollup": "^2.38.4",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ]
 }
