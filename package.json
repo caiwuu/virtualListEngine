@@ -1,0 +1,17 @@
+{
+  "name": "virtual-list-engine",
+  "version": "1.0.0",
+  "description": "virtualListEngine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "virtualListEngine",
+    "virtual-list-engine",
+    "virtual-list",
+    "virtual"
+  ],
+  "author": "caiwu",
+  "license": "ISC"
+}
