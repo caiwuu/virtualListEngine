@@ -16,10 +16,11 @@ export default class VirtualListEngine {
   pointer = {
     prev: 0, // 上一代指针的开始指针
     start: 0, // 开始指针
-    end: 10, // 结束指针
+    end: 0, // 结束指针
     next: 0, // 下一代指针的结束指针
   }
   constructor(container, pageOpt, getData) {
+    this.pointer.end = this.pageOpt.pageSize
     this.pageOpt = pageOpt
     this.getData = getData
     this.container = container
@@ -31,7 +32,6 @@ export default class VirtualListEngine {
     let viewAreaH = this.container.clientHeight // 一屏的高度
     this.hatH = viewContentH - viewAreaH
     this.itemH = viewContentH / this.firstPageSize
-    this.pointer.end = this.pageOpt.pageSize
     this.step = Math.floor(this.hatH / this.itemH) // 步长
     this.pointer.next = this.pointer.end + this.step
   }
@@ -83,14 +83,14 @@ export default class VirtualListEngine {
     //   this.itemH,
     //   this.hatH + this.step * this.itemH * (this.generation - 1)
     // )
-    if (e.target.scrollTop >= this.hatH + this.step * this.itemH * (this.generation - 1) - 1) {
+    if (e.target.scrollTop >= this.hatH + this.step * this.itemH * (this.generation - 1)) {
       this.addGeneration()
       if (this.pointer.next > this.allListLength - 1 && this.hasMoreData) {
         this.pageOpt.pageNo += 1
         this.getData(this.notice.bind(this), this.pageOpt)
       }
     }
-    if (e.target.scrollTop < this.hatH + this.step * this.itemH * (this.generation - 2) - 1 && this.generation >= 2) {
+    if (e.target.scrollTop < this.hatH + this.step * this.itemH * (this.generation - 2) && this.generation >= 2) {
       this.reduceGeneration()
     }
   }
@@ -110,6 +110,7 @@ export default class VirtualListEngine {
   // 初始化容器dom
   _initContainerDom() {
     if (this.container instanceof HTMLElement) {
+      return
     } else if (/#.*/.test(this.container)) {
       let dom = document.getElementById(this.container.slice(1))
       if (dom) {
