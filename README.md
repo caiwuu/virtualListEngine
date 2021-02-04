@@ -79,10 +79,6 @@ npm install virtual-list-engine --save
 
 - 实例方法
 
-1. virtuaListEngine.resetPointer()
+1. virtuaListEngine.resetPointer() :将指针移动到初始位置
 
-将指针移动到初始位置
-
-2. virtuaListEngine.destroy()
-
-销毁实例的滚动条监听
+2. virtuaListEngine.destroy() :销毁实例的滚动条监听
