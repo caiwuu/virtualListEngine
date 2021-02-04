@@ -83,6 +83,6 @@ npm install virtual-list-engine --save
 
 将指针移动到初始位置
 
-2.virtuaListEngine.destroy()
+2. virtuaListEngine.destroy()
 
 销毁实例的滚动条监听
