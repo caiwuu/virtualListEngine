@@ -1,6 +1,6 @@
 {
   "name": "virtual-list-engine",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "virtualListEngine",
   "main": "dist/index.js",
   "scripts": {
