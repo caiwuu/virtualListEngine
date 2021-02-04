@@ -64,3 +64,25 @@ npm install virtual-list-engine --save
 
 ```
 
+- 实例属性
+
+1. virtuaListEngine.pointer
+
+```
+ {
+    prev: 0, // 上一代指针的开始指针
+    start: 0, // 开始指针
+    end: 10, // 结束指针
+    next: 0, // 下一代指针的结束指针
+  }
+```
+
+- 实例方法
+
+1. virtuaListEngine.resetPointer()
+
+将指针移动到初始位置
+
+2.virtuaListEngine.destroy()
+
+销毁实例的滚动条监听
