@@ -1,0 +1,66 @@
+### 使用方法
+
+- 安装
+
+```
+npm install virtual-list-engine --save
+```
+
+- 项目中引入
+
+```javascript
+// example.vue
+<div class="oa-list" id="oa-list">
+      <div>
+        <div
+          v-for="(item, index) in renderList"
+          :key="index">
+            ......
+        </div>
+      </div>
+ </div>
+<script>
+   import virtuaListEngine from 'virtual-list-engine'
+	 export default{
+     data(){
+       return{
+         pageOpt: {
+          pageSize: 15,
+          pageNo: 1,
+        },
+        virtuaListEngine: null,
+        allList: [],
+       }
+     },
+     ...
+     mounted() {
+      this.virtuaListEngine = new VirtuaListEngine('#oa-list', this.pageOpt, this.getList)
+     },
+     computed: {
+      pointer() {
+        return {
+          start: this.virtuaListEngine ? this.virtuaListEngine.pointer.start : 0,
+          end: this.virtuaListEngine ? this.virtuaListEngine.pointer.end : 0,
+        }
+      },
+      renderList() {
+        return this.oaList.slice(this.pointer.start, this.pointer.end)
+      },
+    },
+    method:{
+      // 列表数据获取方法 pageOpt={pageSize,pageNo}
+      getList(notice,pageOpt){
+        ...
+        this.allList = this.allList.concat(data.data.rows)
+        notice && notice(this.allList.length)
+        ...
+      },
+     destroyed() {
+      this.virtuaListEngine.destroy()
+    },
+   }
+</script>
+
+
+```
+
