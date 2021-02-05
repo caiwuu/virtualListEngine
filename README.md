@@ -4,7 +4,7 @@
 
 该插件利用分片渲染的方法解决超长列表的渲染问题，能将列表dom数量始终控制在一个pageSize,并且采用了预加载技术，能带来很好的零延迟加载的用户体验。
 
-<video id="video" controls="" preload="none">     <source id="mp4" src="./static/mv.mp4" type="video/mp4"> </video>
+![image-20210205112501259](static/mv.gif)
 
 ### 使用方法
 
