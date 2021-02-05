@@ -52,7 +52,7 @@ npm install virtual-list-engine --save
         }
       },
       renderList() {
-        return this.oaList.slice(this.pointer.start, this.pointer.end)
+        return this.allList.slice(this.pointer.start, this.pointer.end)
       },
     },
     method:{
