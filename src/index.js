@@ -1,7 +1,7 @@
 export default class VirtualListEngine {
   container = null
   step = 0 // 步长
-  itemH = 0 // 每个列表元素的长度
+  itemH = 0 // 每个列表元素的高度
   padding = 0 // 可视区域外面的padding
   hatH = 0 // 头部高度
   getData = null // 获取数据回调函数
